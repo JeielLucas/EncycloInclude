@@ -19,6 +19,7 @@ import ListItemText from '@mui/material/ListItemText';
 
 
 import NavigationComponent from '../../pages/tabelaReferencia';
+import { Par_Q } from '../../pages/par-q/Par_Q';
 
 const drawerWidth = 240;
 
@@ -145,6 +146,8 @@ export default function PersistentDrawerLeft() {
         <DrawerHeader />
 
         {selectedItem === 'Tabela de referência' && <NavigationComponent />}
+        {selectedItem === 'Anamnese' && <Par_Q />}
+
 
       </Main>
     </Box>
