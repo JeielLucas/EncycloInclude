@@ -20,6 +20,7 @@ import ListItemText from '@mui/material/ListItemText';
 
 import NavigationComponent from '../../pages/tabelaReferencia';
 import { Par_Q } from '../../pages/par-q/Par_Q';
+import { NavigationComponentRiscoCardiacos } from '../../pages/fatoresRisco';
 
 const drawerWidth = 240;
 
@@ -147,7 +148,10 @@ export default function PersistentDrawerLeft() {
 
         {selectedItem === 'Tabela de referência' && <NavigationComponent />}
         {selectedItem === 'Anamnese' && <Par_Q />}
-
+        
+        
+        {selectedItem === 'Fatores de risco' && <NavigationComponentRiscoCardiacos />}
+        
 
       </Main>
     </Box>

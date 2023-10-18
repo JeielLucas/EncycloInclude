@@ -105,7 +105,7 @@ export const ResistenciaMuscular: React.FC = () => {
                                 key={row.idade}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
-                                  <TableCell component="th" scope="row">{row.idade} </TableCell>
+                                <TableCell component="th" scope="row">{row.idade} </TableCell>
                                 <TableCell component="th" scope="row">{row.Excelente} </TableCell>
                                 <TableCell align="left">{row.acimaMedia}</TableCell>
                                 <TableCell align="left">{row.media}</TableCell>

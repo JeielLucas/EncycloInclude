@@ -163,7 +163,6 @@ export const PressaoArterial: React.FC = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
-
         </>
     )
 }
