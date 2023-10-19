@@ -3,14 +3,14 @@ import imgonda from '../../assets/home/onda 2.png'
 import imgredonda from '../../assets/home/img.png'
 import imgEnd from '../../assets/home/mockup-pacote 2.png'
 import img from '../../assets/home/Rectangle 68.png'
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import img1 from '../../assets/home/img2.png'
-import img2 from '../../assets/home/img3.png'
-import img3 from '../../assets/home/img4.png'
-import img4 from '../../assets/home/img5.png'
-import img5 from '../../assets/home/img6.png'
+// import Slider from 'react-slick';
+// import 'slick-carousel/slick/slick.css';
+// import 'slick-carousel/slick/slick-theme.css';
+// import img1 from '../../assets/home/img2.png'
+// import img2 from '../../assets/home/img3.png'
+// import img3 from '../../assets/home/img4.png'
+// import img4 from '../../assets/home/img5.png'
+// import img5 from '../../assets/home/img6.png'
 import imgrodape from '../../assets/home/onda-curta-b 1 rodape.png'
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -20,38 +20,37 @@ import logo from '../../assets/home/P1 AZUL ESCURO.png';
 
 import { Header } from "../../components/header"
 
-import styled from "styled-components"
+
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom"
 
 
-const patrociniosData = [
-    {
-        imageUrl: img1,
-    },
-    {
-        imageUrl: img2,
-    },
-    {
-        imageUrl: img3,
-    },
-    {
-        imageUrl: img4,
-    },
-    {
-        imageUrl: img5,
-    },
-];
 
-const Image = styled.img`
-    position:'relative',
-    marginTop: '55px',
-    width: '280px', 
-    height: '280px',
-    borderRadius: '10px',
-    objectFit: 'cover',
-`;
+// const patrociniosData = [
+//     {
+//         imageUrl: img1,
+//     },
+//     {
+//         imageUrl: img2,
+//     },
+//     {
+//         imageUrl: img3,
+//     },
+//     {
+//         imageUrl: img4,
+//     },
+//     {
+//         imageUrl: img5,
+//     },
+// ];
+
+// const Image = styled.img`
+
+//     display: block;
+//   margin: 0 auto;
+//   width: 100%;
+// `;
 
 const data = [
     {
@@ -90,38 +89,37 @@ export const Home: React.FC = () => {
     const smDown = useMediaQuery(theme.breakpoints.down('sm'));
     const limitedData = showAll ? data : data.slice(0, 3);
 
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 5000,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
+    // const settings = {
+    //     dots: true,
+    //     infinite: true,
+    //     speed: 500,
+    //     slidesToShow: 4,
+    //     slidesToScroll: 1,
+    //     autoplay: true,
+    //     autoplaySpeed: 5000,
+    //     centerMode: true,
 
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-
-                }
-            }
-        ]
-    };
+    //     responsive: [
+    //         {
+    //             breakpoint: 1024,
+    //             settings: {
+    //                 slidesToShow: 3,
+    //             },
+    //         },
+    //         {
+    //             breakpoint: 600,
+    //             settings: {
+    //                 slidesToShow: 2,
+    //             },
+    //         },
+    //         {
+    //             breakpoint: 480,
+    //             settings: {
+    //                 slidesToShow: 1,
+    //             },
+    //         },
+    //     ],
+    // };
     return (
         <ContainerGeral >
             <WaveImage id="inicio" src={imgonda} alt="Imagem de Onda" />
@@ -137,16 +135,19 @@ export const Home: React.FC = () => {
                 <RoundedImage src={imgredonda} alt="Imagem Redonda" />
             </ContentContainer>
 
-            <SliderCustom>
+            {/* <SliderCustom>
                 <Slider {...settings}>
                     {patrociniosData.map((item, index) => (
+                        <div
 
-                        <div key={index}>
+                            key={index}>
                             <Image src={item.imageUrl} alt={`Imagem ${index + 1}`} />
                         </div>
                     ))}
                 </Slider>
-            </SliderCustom>
+            </SliderCustom> */}
+
+           
 
 
             <ContainerLimit>
@@ -280,7 +281,7 @@ export const Home: React.FC = () => {
                     display='flex'
                     justifyContent='center'
                     color='white'
-                    
+
                 >
                     2023 © FERREIRA E EVARISTO PORTAL DE CONTEUDO LTDA | ENCYCLO EDUCACAO FISICA E SAUDE
                 </Box>
@@ -289,7 +290,7 @@ export const Home: React.FC = () => {
                     justifyContent='center'
                     color='white'
                 >
-                    Todos os direitos reservados. Criado por <strong style={{fontFamily: 'Montserrat', fontWeight: '700', color: '#F25221', paddingLeft: '0.5rem' }}> Include Jr</strong>
+                    Todos os direitos reservados. Criado por <strong style={{ fontFamily: 'Montserrat', fontWeight: '700', color: '#F25221', paddingLeft: '0.5rem' }}> Include Jr</strong>
                 </Box>
             </Box>
 
