@@ -1,4 +1,4 @@
-import { Button, Card, Cards, Containeer, Container, ContainerEmail, ContainerGeral, ContainerLimit, ContainerLimit2, ContentContainer, ImageCard, ImageEnd, ImageLogo, Input, Itens, Rodape, RoundedImage, SliderCustom, Subtitle, TextCard, TextCard1, TextEnd, Textos, Title, TitleCard, TitleEmail, TituloCard, WaveImage } from "./syle"
+import { Button, Card, Cards, Containeer, Container, ContainerEmail, ContainerGeral, ContainerLimit, ContainerLimit2, ContentContainer, ImageCard, ImageEnd, ImageLogo, Input, Itens, Rodape, RoundedImage, Subtitle, TextCard, TextCard1, TextEnd, Textos, Title, TitleCard, TitleEmail, TituloCard, WaveImage } from "./syle"
 import imgonda from '../../assets/home/onda 2.png'
 import imgredonda from '../../assets/home/img.png'
 import imgEnd from '../../assets/home/mockup-pacote 2.png'
