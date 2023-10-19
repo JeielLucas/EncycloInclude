@@ -17,30 +17,21 @@ import styled from 'styled-components';
 
 
 const ImageLogo = styled.img`
- width: 15rem;
+ width: 9rem;
   padding: 1rem;
 
     @media(max-width: 900px){
-        width: 18px;
+       width: 7rem;
 
      }
      @media(max-width: 768px){
-        width: 15px;
+        width: 6rem;
 
      }
 `;
 
 const Image = styled.img`
-    width: 25px;
-
-    // @media(max-width: 900px){
-    //     width: 35px;
-
-    //  }
-    //  @media(max-width: 768px){
-    //     width: 30px;
-
-    //  }
+    width: 20px;
 `;
 
 const pages = ['Início', 'Portal', 'Avaliações', 'Quem somos'];
@@ -84,7 +75,7 @@ export const Header: React.FC = () => {
         <AppBar
             position="fixed"
             elevation={scrolled ? 1 : 0}
-            style={{ background: scrolled ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0)' , padding: '15px' }}
+            style={{ background: scrolled ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0)' , padding: '0 15px' }}
         >
             <Container maxWidth="xl" >
                 <Toolbar disableGutters >
@@ -166,7 +157,7 @@ export const Header: React.FC = () => {
                                     sx={{
                                         my: 2,
                                         color: 'white',
-                                        fontSize: { xs: 18, md: 20 },
+                                        fontSize: { xs: 14, md: 16 },
                                         fontFamily: 'Montserrat, sans-serif',
                                     }}
 

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ContainerGeral = styled.div`
     overflow-x: hidden;
     width: 100vw;
-    margin-top: 168px;
+    margin-top: 130px;
     display: flex;
     flex-direction: column;
     align-item: center;
@@ -15,15 +15,14 @@ export const ContainerGeral = styled.div`
 `;
 export const WaveImage = styled.img`
     width: 100%;
-
-    top: 0;
+    top: -100px;
     left: 0;
     z-index: -1;
     position: absolute;
     object-fit: cover; /* Isso ajuda a evitar que a imagem seja deformada */
 
     @media (max-width: 768px) {
-        /* Defina um tamanho apropriado para a imagem em telas menores */
+        top: -10px;
         width: 100%;
         height: 30%;
     }
@@ -135,7 +134,10 @@ export const ContentContainer = styled.div`
     margin: 0 150px;
     @media(max-width: 900px){
         flex-direction: column;
-          margin: 0 20px;
+        align-items: center;
+        justify-content: center;
+        margin: 0 20px;
+        padding-top: 20px;
     }
 `;
 
@@ -163,8 +165,9 @@ export const RoundedImage = styled.img`
         height: 20rem;
     }
     @media(max-width: 768px){
-        width: 13rem;
-        height: 13rem;
+        width: 15rem;
+        height: 15rem;
+        margin-left: 0;
     }
     `;
 
@@ -197,11 +200,12 @@ export const Subtitle = styled.p`
 `;
 
 export const SliderCustom = styled.div`
-    margin: 100px auto;
-  width: 100%;
+   margin: 100px auto;
+   width: 100%;
+  @media(max-width: 768px){
+    width: 50%;
 
-
-
+  }
 `;
 
 
@@ -228,7 +232,6 @@ export const ContainerEmail = styled.div`
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background-color: pink;
     }
 
 `;
@@ -387,7 +390,7 @@ line-height: normal;
 `;
 
 export const ImageEnd = styled.img`
-   width: 60rem;
+   width: 50rem;
      @media(max-width: 768px){
       width: 27rem;
     }
