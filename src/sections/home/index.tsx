@@ -24,6 +24,7 @@ import { Header } from "../../components/header"
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom"
+import { Limit } from "../../tools/Limit"
 
 
 
@@ -121,19 +122,25 @@ export const Home: React.FC = () => {
     //     ],
     // };
     return (
-        <ContainerGeral >
+        <ContainerGeral style={{ overflowX: 'hidden' }}>
             <WaveImage id="inicio" src={imgonda} alt="Imagem de Onda" />
+
             <Header />
 
-            <ContentContainer>
-                <Textos>
-                    <Title>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Title>
-                    <Subtitle>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae mollis sem. Phasellus iaculis venenatis.
-                    </Subtitle>
-                </Textos>
-                <RoundedImage src={imgredonda} alt="Imagem Redonda" />
-            </ContentContainer>
+            <Box>
+                <Limit>
+                    <ContentContainer>
+                        <Textos>
+                            <Title>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Title>
+                            <Subtitle>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae mollis sem. Phasellus iaculis venenatis.
+                            </Subtitle>
+                        </Textos>
+                        <RoundedImage src={imgredonda} alt="Imagem Redonda" />
+
+                    </ContentContainer>
+                </Limit>
+            </Box>
 
             {/* <SliderCustom>
                 <Slider {...settings}>
@@ -147,141 +154,299 @@ export const Home: React.FC = () => {
                 </Slider>
             </SliderCustom> */}
 
-           
+
 
 
             <ContainerLimit>
-                <ContainerEmail>
-                    <TitleEmail>
-                        <Typography
-                            variant="h6"
-                            style={{
-                                color: '#0A284D',
+                <Limit>
+                    <Box
+                   
+                     display= 'flex'
+                     flexDirection= 'column'
+                     justifyContent= 'center'
+                     alignItems='center'
+                     overflow='hidden'
+                    
+                    >
+                        <ContainerEmail>
+                            <TitleEmail>
+                                <Typography
+                                    variant="h6"
+                                    style={{
+                                        color: '#0A284D',
 
-                                fontSize: '1.5rem',
-                                fontStyle: 'normal',
-                                fontWeight: 400, // Defina o peso da fonte como bold (negrito)
-                                lineHeight: 'normal',
-                                padding: smDown ? '0' : '0 11rem',
-                            }}
-                        >
-                            Artigos atualizados
-                            semanalmente no conforto
-                            da sua <span style={{ fontWeight: 'bold' }}>caixa de entrada</span>
+                                        fontSize: smDown ? '1.2rem' : '1.5rem',
+                                        fontStyle: 'normal',
+                                        fontWeight: 400, // Defina o peso da fonte como bold (negrito)
+                                        lineHeight: 'normal',
+                                        padding: smDown ? '0' : '0 5rem',
+                                    }}
+                                >
+                                    Artigos atualizados
+                                    semanalmente no conforto
+                                    da sua <span style={{ fontWeight: 'bold' }}>caixa de entrada</span>
 
-                        </Typography>
-                    </TitleEmail>
-                    <Input>
-                        <input style={{ background: 'white', paddingLeft: '10px', width: '35rem', height: '3rem', border: 0, borderRadius: '1rem' }} type="email" placeholder='E-mail' id="fname" name="fname" />
-                    </Input>
-                </ContainerEmail>
+                                </Typography>
+                            </TitleEmail>
+                            <Input>
+                                <input style={{ background: 'white', paddingLeft: '10px', width: '80%', height: '3rem', border: 0, borderRadius: '1rem' }} type="email" placeholder='E-mail' id="fname" name="fname" />
+                            </Input>
+                        </ContainerEmail>
 
 
-                <Container>
-                    <Cards>
-                        {limitedData.map((item, index) => (
-                            <Card key={index}>
-                                <TitleCard>
-                                    <TextCard1>{item.title}</TextCard1>
-                                </TitleCard>
-                                <ImageCard src={item.image} alt="Imagem do cartão" />
-                                <TituloCard>{item.titulo}</TituloCard>
-                                <TextCard>{item.text}</TextCard>
-                            </Card>
-                        ))}
-                    </Cards>
+                        <Container>
+                            <Cards>
+                                {limitedData.map((item, index) => (
+                                    <Card key={index}>
+                                        <TitleCard>
+                                            <TextCard1>{item.title}</TextCard1>
+                                        </TitleCard>
+                                        <ImageCard src={item.image} alt="Imagem do cartão" />
+                                        <TituloCard>{item.titulo}</TituloCard>
+                                        <TextCard>{item.text}</TextCard>
+                                    </Card>
+                                ))}
+                            </Cards>
 
-                    <Button onClick={() => setShowAll(!showAll)}>{showAll ? 'Ver menos' : 'Ver Mais'}</Button>
-                </Container>
+                            <Button onClick={() => setShowAll(!showAll)}>{showAll ? 'Ver menos' : 'Ver Mais'}</Button>
+                        </Container>
+                    </Box>
+                </Limit>
             </ContainerLimit>
 
             <ContainerLimit2>
-                <Containeer>
-                    <TextEnd>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </TextEnd>
+                <Limit>
+                    <Containeer>
+                        <TextEnd>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </TextEnd>
 
-                    <ImageEnd src={imgEnd} />
+                        <ImageEnd src={imgEnd} />
 
-                </Containeer>
+                    </Containeer>
 
+                </Limit>
                 <img src={imgrodape} />
             </ContainerLimit2>
 
             <Rodape>
                 <Box
-                    display='flex'
-                    flexDirection='column'
-                    justifyContent='left'
-                    width='25%'
-                    padding='0 40px'
-                >
+                    width='100%'
 
-                    <a href="#inicio" style={{ textDecoration: 'none' }}>
-                        <Itens>Início</Itens>
-                        <hr style={{ width: '100%', borderColor: 'white' }} />
-                    </a>
-
-                    <Box>
-                        <Link to="/portal" style={{ textDecoration: 'none' }}>
-                            <Itens>Portal</Itens>
-                        </Link>
-                        <Link to="/quem-somos" style={{ textDecoration: 'none' }}>
-                            <Itens>Quem somos</Itens>
-                        </Link>
-                        <Link to="/colunistas" style={{ textDecoration: 'none' }}>
-                            <Itens>Colunistas</Itens>
-                        </Link>
-                    </Box>
-                </Box>
-                <Box width='25%' padding='70px 40px'>
-                    <Link to="/parceiros" style={{ textDecoration: 'none' }}>
-                        <Itens>Parceiros</Itens>
-                    </Link>
-                    <Link to="/termos-de-uso" style={{ textDecoration: 'none' }}>
-                        <Itens>Termos de uso</Itens>
-                    </Link>
-                    <Link to="/politica-de-privacidade" style={{ textDecoration: 'none' }}>
-                        <Itens>Politica de privacidade</Itens>
-                    </Link>
-                </Box>
-                <Box
-                    width='50%'
-                    padding='0 40px'
-                    display='flex'
-                    gap='20px'
-                    justifyContent='right'
                 >
+                    <Limit>
+                        <Box
+                            display={"flex"}
+                            flexDirection={smDown ? 'column' : 'row'}
+                        >
+                            <Box
+                                width='100%'
+                                display='flex'
+                                flexDirection='column'
+                                padding={smDown ? '0 10px' : '0'}
+                                justifyContent={smDown ? 'center' : 'right'}
+                            >
+                                <Box>
+                                    <a href="#inicio" style={{ textDecoration: 'none' }}>
+                                        <Itens>Início</Itens>
+                                        {/* <hr style={{ width: '100%', borderColor: 'white' }} /> */}
+                                    </a>
+
+                                </Box>
+
+                                <Box
+                                    display='flex'
+                                    gap={smDown ? 10 : 20}
+                                >
+                                    <Box  >
+                                        <Link to="/portal" style={{ textDecoration: 'none' }}>
+                                            <Itens>Portal</Itens>
+                                        </Link>
+                                        <Link to="/quem-somos" style={{ textDecoration: 'none' }}>
+                                            <Itens>Quem somos</Itens>
+                                        </Link>
+                                        <Link to="/colunistas" style={{ textDecoration: 'none' }}>
+                                            <Itens>Colunistas</Itens>
+                                        </Link>
+
+                                    </Box>
+                                    <Box   >
+                                        <Link to="/parceiros" style={{ textDecoration: 'none' }}>
+                                            <Itens>Parceiros</Itens>
+                                        </Link>
+                                        <Link to="/termos-de-uso" style={{ textDecoration: 'none' }}>
+                                            <Itens>Termos de uso</Itens>
+                                        </Link>
+                                        <Link to="/politica-de-privacidade" style={{ textDecoration: 'none' }}>
+                                            <Itens>Politica de privacidade</Itens>
+                                        </Link>
+                                    </Box>
+                                </Box>
+                            </Box>
+
+                            <Box
+                                width='100%'
+                                display='flex'
+                                justifyContent={smDown ? 'center' : 'right'}
+                            >
+                                <Box
+
+                                    display='flex'
+                                    gap='17px'
+                                    height='45px'
+                                    paddingTop={2}
+                                >
+                                    <a href="https://www.gmail.com" target="_blank" rel="noopener noreferrer">
+                                        <EmailIcon style={{ color: 'white', fontSize: smDown ? '30px' : '32px' }} />
+                                    </a>
+                                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                                        <LinkedInIcon style={{ color: 'white', fontSize: smDown ? '30px' : '32px' }} />
+                                    </a>
+                                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                                        <InstagramIcon style={{ color: 'white', fontSize: smDown ? '30px' : '32px' }} />
+                                    </a>
+                                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                                        <FacebookIcon style={{ color: 'white', fontSize: smDown ? '30px' : '32px' }} />
+                                    </a>
+                                </Box>
+                            </Box>
+                        </Box>
+
+                    </Limit>
+                </Box>
+
+
+            </Rodape>
+
+            <Box bgcolor='#0A284E' alignItems='center' justifyContent='center' paddingBottom='8px'>
+                <Limit >
                     <Box
                         display='flex'
-                        gap='17px'
-                        height='45px'
+                        alignItems='center'
+                        justifyContent={smDown ? 'center' : 'left'}
                     >
-                        <a href="https://www.gmail.com" target="_blank" rel="noopener noreferrer">
-                            <EmailIcon style={{ color: 'white', fontSize: '38px' }} />
-                        </a>
-                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-                            <LinkedInIcon style={{ color: 'white', fontSize: '38px' }} />
-                        </a>
-                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                            <InstagramIcon style={{ color: 'white', fontSize: '38px' }} />
-                        </a>
-                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                            <FacebookIcon style={{ color: 'white', fontSize: '38px' }} />
-                        </a>
+                        <ImageLogo src={logo} alt="Logo" />
                     </Box>
-                </Box>
+
+                    <Box
+                        display='flex'
+                        alignItems='center'
+                        textAlign='center'
+                        justifyContent='center'
+                        color='white'
+                        sx={{ fontSize: smDown ? 10 : 11 }}
+                    >
+                        2023 © FERREIRA E EVARISTO PORTAL DE CONTEUDO LTDA | ENCYCLO EDUCACAO FISICA E SAUDE
+                    </Box>
+                    <Box
+                        display='flex'
+                        justifyContent='center'
+                        color='white'
+                        textAlign='center'
+                        padding={smDown ? '0 10px' : '0'}
+                        sx={{ fontSize: 12 }}
+                    >
+                        Todos os direitos reservados. Criado por <strong style={{ fontFamily: 'Montserrat', fontWeight: '700', color: '#F25221', paddingLeft: '0.5rem' }}> Include Jr</strong>
+                    </Box>
+                </Limit>
+            </Box>
+
+            {/* <Rodape style={{ overflowX: 'hidden' }}>
+                <Limit >
+                    <Box
+                        display='flex'
+                        flexDirection='column'
+                        justifyContent='left'
+                        padding={smDown ? '0 40px' : '0'}
+                        bgcolor={'green'}
+                        //width={smDown ? '100%' : '50%'}
+                    >
+
+                        <a href="#inicio" style={{ textDecoration: 'none' }}>
+                            <Itens>Início</Itens>
+                            <hr style={{ width: '100%', borderColor: 'white' }} />
+                        </a>
+
+                        <Box
+                            display='flex'
+                            gap={smDown ? 12 : 20}
+                            width='100%'
+
+                        >
+                            <Box  >
+                                <Link to="/portal" style={{ textDecoration: 'none' }}>
+                                    <Itens>Portal</Itens>
+                                </Link>
+                                <Link to="/quem-somos" style={{ textDecoration: 'none' }}>
+                                    <Itens>Quem somos</Itens>
+                                </Link>
+                                <Link to="/colunistas" style={{ textDecoration: 'none' }}>
+                                    <Itens>Colunistas</Itens>
+                                </Link>
+
+                            </Box>
+                            <Box   >
+                                <Link to="/parceiros" style={{ textDecoration: 'none' }}>
+                                    <Itens>Parceiros</Itens>
+                                </Link>
+                                <Link to="/termos-de-uso" style={{ textDecoration: 'none' }}>
+                                    <Itens>Termos de uso</Itens>
+                                </Link>
+                                <Link to="/politica-de-privacidade" style={{ textDecoration: 'none' }}>
+                                    <Itens>Politica de privacidade</Itens>
+                                </Link>
+                            </Box>
+                        </Box>
+                    </Box>
+
+                    <Box
+                       // width={smDown ? '100%' : '50%'}
+                        padding={smDown ? '0' : '0 40px'}
+                        display='flex'
+                        gap='20px'
+                        bgcolor={'pink'}
+                        justifyContent={smDown ? 'center' : 'right'}
+                    >
+                        <Box
+
+                            display='flex'
+                            gap='17px'
+                            height='45px'
+                            paddingTop={2}
+                        >
+                            <a href="https://www.gmail.com" target="_blank" rel="noopener noreferrer">
+                                <EmailIcon style={{ color: 'white', fontSize: smDown ? '30px' : '32px' }} />
+                            </a>
+                            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                                <LinkedInIcon style={{ color: 'white', fontSize: smDown ? '30px' : '32px' }} />
+                            </a>
+                            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                                <InstagramIcon style={{ color: 'white', fontSize: smDown ? '30px' : '32px' }} />
+                            </a>
+                            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                                <FacebookIcon style={{ color: 'white', fontSize: smDown ? '30px' : '32px' }} />
+                            </a>
+                        </Box>
+                    </Box>
+                </Limit>
             </Rodape>
-            <Box bgcolor='#0A284E' alignItems='center' justifyContent='centers' padding='0 25px' height='13rem'>
-                <Box >
+            <Box bgcolor='#0A284E' alignItems='center' justifyContent='center' paddingBottom='8px'>
+            <Limit >
+                <Box
+                    display='flex'
+                    alignItems='center'
+                    justifyContent={smDown ? 'center' : 'left'}
+                >
                     <ImageLogo src={logo} alt="Logo" />
                 </Box>
 
                 <Box
                     display='flex'
+                    alignItems='center'
+                    textAlign='center'
                     justifyContent='center'
                     color='white'
-
+                    sx={{ fontSize: smDown ? 10 : 11 }}
                 >
                     2023 © FERREIRA E EVARISTO PORTAL DE CONTEUDO LTDA | ENCYCLO EDUCACAO FISICA E SAUDE
                 </Box>
@@ -289,10 +454,14 @@ export const Home: React.FC = () => {
                     display='flex'
                     justifyContent='center'
                     color='white'
+                    textAlign='center'
+                    sx={{ fontSize: smDown ? 12 : 12 }}
                 >
                     Todos os direitos reservados. Criado por <strong style={{ fontFamily: 'Montserrat', fontWeight: '700', color: '#F25221', paddingLeft: '0.5rem' }}> Include Jr</strong>
                 </Box>
-            </Box>
+                </Limit>
+            </Box> */}
+
 
 
 
