@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+
+export const BodyLimit =  styled.div`
+  display:flex;
+  flexDirection:column;
+  width:100%;
+`;
+
+
 export const ContainerGeral = styled.div`
     overflow-x: hidden;
     width: 100vw;
@@ -8,6 +16,8 @@ export const ContainerGeral = styled.div`
     flex-direction: column;
     align-item: center;
     justify-content: center;
+
+    
     
     @media(max-width: 900px){
         margin-top: 115px;
@@ -131,7 +141,6 @@ export const ContentContainer = styled.div`
     display: flex;
     align-items: end;
     justify-content: end;
-    margin: 0 150px;
     @media(max-width: 900px){
         flex-direction: column;
         align-items: center;
@@ -211,6 +220,7 @@ export const SliderCustom = styled.div`
 
 export const ContainerLimit = styled.div`
     width: 100%;
+    overflow: hidden;
 background: rgba(220, 235, 244, 0.50);
 mix-blend-mode: darken;
     display: flex;
@@ -220,41 +230,41 @@ mix-blend-mode: darken;
     padding: 4rem 0;
 `;
 export const ContainerEmail = styled.div`
-    width: 92%;
-    height: 21.375rem;
+    width: 100%;
+    height: 18rem;
     border-radius: 1.5625rem;
     background: #DCEBF4;
     display: flex;
     flex-direction: row;
-
+  overflow: hidden;
     @media(max-width: 768px){
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      width: 90%;
     }
 
 `;
 export const TitleEmail = styled.div`
-    width: 50%;
+    width: 100%;
     display: flex;
      flex-direction: row;
     align-items: center;
     justify-content: center;
-
+      overflow: hidden;
     @media(max-width: 768px){
-      width: 80%;
       text-align: center; 
       padding-bottom: 20px;
     }
     
 `;
 export const Input = styled.div`
-   width: 50%;
-     display: flex;
-     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 `;
 
 
@@ -277,7 +287,7 @@ export const Cards = styled.div`
   justify-content: center;
 
    @media(max-width: 768px){
-      width: 90%;
+      width: 70%;
     }
 `;
 
@@ -286,8 +296,8 @@ export const Card = styled.div`
   flex-direction: column;
   gap: 1.38rem;
   align-items: left;
-  width: 410px;
-  padding: 20px;
+  width: 400px;
+  
   margin-bottom: 20px;
 `;
 
@@ -298,6 +308,11 @@ export const TituloCard = styled.div`
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+
+    @media(max-width: 768px){
+      font-size: 1.5rem;
+    }
+    
 `;
 
 export const TitleCard = styled.div`
@@ -308,6 +323,8 @@ export const TitleCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  
 `;
 
 export const TextCard = styled.p`
@@ -317,6 +334,10 @@ font-size: 1.875rem;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
+
+@media(max-width: 768px){
+      font-size: 1.5rem;
+    }
 `;
 export const TextCard1 = styled.p`
 color: #FFF;
@@ -325,6 +346,10 @@ font-size: 1.875rem;
 font-style: normal;
 font-weight: 500;
 line-height: normal;
+
+ @media(max-width: 768px){
+      font-size: 1.5rem;
+    }
 `;
 
 export const ImageCard = styled.img`
@@ -356,7 +381,6 @@ height: 2.3rem;
 
 
 export const ContainerLimit2 = styled.div`
-    width: 100%;
     background: #DCEBF4; 
 mix-blend-mode: darken;
     display: flex;
@@ -368,7 +392,7 @@ mix-blend-mode: darken;
 
 export const Containeer = styled.div`
     display: flex;
-    width: 93%;
+
     align-items: center;
 
      @media(max-width: 768px){
@@ -384,48 +408,30 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
 
+ 
  @media(max-width: 768px){
-    font-size: 3.5rem;
+    font-size: 2.5rem;
+    text-align: center;
     }
 `;
 
 export const ImageEnd = styled.img`
-   width: 50rem;
-     @media(max-width: 768px){
-      width: 27rem;
-    }
+   width: 100%;
+     
 `;
 
-
 export const Rodape = styled.div`
-  height: 15rem; 
-  width: 100vw;
+
   background: #0A284E;
-  textAlign: center;
   display: flex;
   color: white;
 `;
-
-
-export const Titulo = styled.p`
-color: #FFF;
-text-align: left;
-font-family: Montserrat;
-font-size: 1.25rem;
-font-style: normal;
-font-weight: 800;
-line-height: normal;
-&:hover {
-    color: #DCEBF4;
-}
-`;
-
 
 export const Itens = styled.p`
 color: #FFF;
 text-align: left;
 font-family: Montserrat;
-font-size: 1.25rem;
+font-size: 0.9rem;
 font-style: normal;
 font-weight: 600;
 line-height: normal;
@@ -434,17 +440,58 @@ line-height: normal;
 }
 `;
 
+
+
+// export const Rodape = styled.div`
+// overflow: hidden;
+// overflow-x: hidden;
+//   // width: 100vw;
+//    background: #0A284E;
+
+//   textAlign: center;
+//   display: flex;
+//   color: white;
+
+//   @media(max-width: 768px){
+//     flex-direction: column;
+//   }
+
+
+// `;
+
+
+// export const Titulo = styled.p`
+// color: #FFF;
+// text-align: left;
+// font-family: Montserrat;
+// font-size: 1.25rem;
+// font-style: normal;
+// font-weight: 800;
+// line-height: normal;
+// &:hover {
+//     color: #DCEBF4;
+// }
+// `;
+
+
+// export const Itens = styled.p`
+// color: #FFF;
+// text-align: left;
+// font-family: Montserrat;
+// font-size: 0.9rem;
+// font-style: normal;
+// font-weight: 600;
+// line-height: normal;
+// &:hover {
+//     color: #DCEBF4;
+// }
+// `;
+
 export const ImageLogo = styled.img`
- width: 15rem;
+  width: 9rem;
   padding: 1rem;
-
-    @media(max-width: 900px){
-        width: 18px;
-
-     }
-     @media(max-width: 768px){
-        width: 15px;
-
-     }
+  @media(max-width: 768px){
+    width: 8rem;
+  }
 `;
 
