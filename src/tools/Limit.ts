@@ -6,15 +6,15 @@ export const Limit = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  // border: 2px solid red;
+ // border: 2px solid red;
 
   @media (max-width: 1800px) {
     max-width: 1400px;
   }
 
-  // @media (max-width: 1560px) {
-  //   max-width: 1200px;
-  // }
+  @media (max-width: 1560px) {
+    max-width: 1200px;
+  }
 
   @media (max-width: 1260px) {
     max-width: 1024px;
