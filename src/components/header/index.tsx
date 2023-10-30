@@ -14,6 +14,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 
 const ImageLogo = styled.img`
@@ -34,7 +35,24 @@ const Image = styled.img`
     width: 20px;
 `;
 
-const pages = ['Início', 'Portal', 'Avaliações', 'Quem somos'];
+const pages = [
+    {
+        nome: 'Início',
+        path: '/',
+    },
+    {
+        nome: 'Portal',
+        path: '/portal',
+    },
+    {
+        nome: 'Avaliações',
+        path: '/avaliacoes',
+    },
+    {
+        nome: 'Quem somos',
+        path: '/quemsomos',
+    }
+];
 const settings = ['Conta', 'Sair'];
 
 
@@ -42,6 +60,8 @@ export const Header: React.FC = () => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
     const [scrolled, setScrolled] = React.useState(false);
+    const [selectedPage, setSelectedPage] = React.useState('Início');
+    const navigate = useNavigate();
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
@@ -75,7 +95,7 @@ export const Header: React.FC = () => {
         <AppBar
             position="fixed"
             elevation={scrolled ? 1 : 0}
-            style={{ background: scrolled ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0)' , padding: '0 15px' }}
+            style={{ background: scrolled ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0)', padding: '0 15px' }}
         >
             <Container maxWidth="xl" >
                 <Toolbar disableGutters >
@@ -119,8 +139,15 @@ export const Header: React.FC = () => {
                             }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                                <MenuItem key={page.nome}
+                                    onClick={() => {
+                                        handleCloseNavMenu();
+                                        setSelectedPage(page.nome);
+                                        navigate(page.path)
+                                    }}>
+                                    <Typography textAlign="center"
+                                        sx={{ color: selectedPage === page.nome ? ' #3e6dbd' : '#000' }}
+                                    >{page.nome}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -151,18 +178,27 @@ export const Header: React.FC = () => {
                         >
                             {pages.map((page) => (
                                 <Button
-                                    key={page}
-                                    onClick={handleCloseNavMenu}
+                                    key={page.nome}
+                                    onClick={() => {
+                                        handleCloseNavMenu();
+                                        setSelectedPage(page.nome);
+                                        navigate(page.path)
+                                    }}
 
                                     sx={{
                                         my: 2,
-                                        color: 'white',
+                                        color: selectedPage === page.nome ? ' #3e6dbd' : 'white',
                                         fontSize: { xs: 14, md: 16 },
                                         fontFamily: 'Montserrat, sans-serif',
+                                        backgroundColor: 'transparent', // torna o fundo transparente
+                                        '&:hover': {
+                                            backgroundColor: 'transparent', // torna o fundo transparente ao passar o mouse
+                                            color: '#4e6bbb', // altera a cor do texto ao passar o mouse
+                                        },
                                     }}
 
                                 >
-                                    {page}
+                                    {page.nome}
                                 </Button>
                             ))}
                         </Box>
