@@ -227,7 +227,8 @@ mix-blend-mode: darken;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 4rem 0;
+    // padding: 4rem 0;
+    padding-top: 120px;
 `;
 export const ContainerEmail = styled.div`
     width: 100%;
@@ -283,12 +284,13 @@ export const Container = styled.div`
 export const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: 30px;
   justify-content: center;
+  width: 100%;
 
-   @media(max-width: 768px){
-      width: 70%;
-    }
+  //  @media(max-width: 768px){
+  //     width: 70%;
+  //   }
 `;
 
 export const Card = styled.div`
@@ -296,27 +298,27 @@ export const Card = styled.div`
   flex-direction: column;
   gap: 1.38rem;
   align-items: left;
-  width: 400px;
+  width: 300px;
   
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 `;
 
 export const TituloCard = styled.div`
     color: #000;
     font-family: Montserrat;
-    font-size: 1.875rem;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
 
     @media(max-width: 768px){
-      font-size: 1.5rem;
+      font-size: 1.4rem;
     }
     
 `;
 
 export const TitleCard = styled.div`
-  width: 70%;
+  width: 60%;
   height: 40px;
   border-radius: 20px;
   background: #3e6dbd;
@@ -330,25 +332,25 @@ export const TitleCard = styled.div`
 export const TextCard = styled.p`
 color: #828282;
 font-family: Montserrat;
-font-size: 1.875rem;
+font-size: 1.4rem;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
 
 @media(max-width: 768px){
-      font-size: 1.5rem;
+      font-size: 1.3rem;
     }
 `;
 export const TextCard1 = styled.p`
 color: #FFF;
 font-family: Montserrat;
-font-size: 1.875rem;
+font-size: 1.5rem;
 font-style: normal;
 font-weight: 500;
 line-height: normal;
 
  @media(max-width: 768px){
-      font-size: 1.5rem;
+      font-size: 1.4rem;
     }
 `;
 
@@ -436,7 +438,7 @@ font-style: normal;
 font-weight: 600;
 line-height: normal;
 &:hover {
-    color: #DCEBF4;
+    color:  #3e6dbd;
 }
 `;
 
