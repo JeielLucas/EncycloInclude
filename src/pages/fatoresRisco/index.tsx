@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { InfoContent, NavigationContainer, NavigationItem } from '../tabelaReferencia/style';
 import { RiscoCardiaco } from '../../pages/fatoresRisco/riscoCardiaco/RiscoCardiaco';
 import { PressãoArterial } from './pressão Arterial/PressãoArterial';
+import { DepedenciaDeCigarro } from './depedenciaCigarro/DepedenciaDeCigarro';
+import { Obesidade } from './obesidade/Obesidade';
 
 
 export const NavigationComponentRiscoCardiacos = () => {
@@ -31,6 +33,18 @@ export const NavigationComponentRiscoCardiacos = () => {
 
       <InfoContent active={activeTab === 1}>
         <PressãoArterial />
+      </InfoContent>
+
+      <InfoContent active={activeTab === 2}>
+        <DepedenciaDeCigarro />
+      </InfoContent>
+
+      <InfoContent active={activeTab === 3}>
+        <Obesidade />
+      </InfoContent>
+
+      <InfoContent active={activeTab === 4}>
+        
       </InfoContent>
 
 

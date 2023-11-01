@@ -49,6 +49,10 @@ const pages = [
         path: '/avaliacoes',
     },
     {
+        nome: 'Ferramentas',
+        path: '/ferramentas',
+    },
+    {
         nome: 'Quem somos',
         path: '/quemsomos',
     }

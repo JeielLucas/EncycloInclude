@@ -125,10 +125,6 @@ export const PressãoArterial: React.FC = () => {
                 } else {
                     setResultDiastolica('Valores fora do padrão');
                 }
-
-               
-
-
             })
             .catch((errors: yup.ValidationError) => {
                 const ValidationError: IFormErrorsCustom = {}
@@ -240,7 +236,7 @@ export const PressãoArterial: React.FC = () => {
                                     },
                                     {
                                         nome: 'Atleta',
-                                        id: '2'
+                                        id: '3'
                                     },
                                 ]}
                                 disabled={false}

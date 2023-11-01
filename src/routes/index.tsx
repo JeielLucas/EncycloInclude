@@ -9,7 +9,7 @@ export const RoutesPages = () => {
         <Routes>
             <Route path='/' element={<PaginaIcial />} />
             <Route path='/portal' element={<Portal />} />
-            <Route path='/home' element={<PersistentDrawerLeft />} />
+            <Route path='/ferramentas' element={<PersistentDrawerLeft />} />
         </Routes>
     )
 }
