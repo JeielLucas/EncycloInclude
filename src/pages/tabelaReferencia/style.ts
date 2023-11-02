@@ -2,9 +2,8 @@ import styled from 'styled-components';
 
 export const NavigationContainer = styled.div`
   display: flex;
-  background-color: #007bff;
+ // background-color: #007bff;
   flex-direction: column; /* Inicialmente em coluna */
-  
   @media (min-width: 768px) {
     flex-direction: row; /* Em telas maiores, em linha */
   }
