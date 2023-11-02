@@ -3,13 +3,13 @@ import PersistentDrawerLeft from "../components/drawer"
 import { PaginaIcial } from "../pages/pageInicial"
 import { Portal } from "../sections/portal"
 
-
 export const RoutesPages = () => {
     return (
         <Routes>
             <Route path='/' element={<PaginaIcial />} />
             <Route path='/portal' element={<Portal />} />
             <Route path='/ferramentas' element={<PersistentDrawerLeft />} />
-        </Routes>
+            <Route path='/ferramentas/:id' element={<PersistentDrawerLeft />} />
+          </Routes>
     )
 }

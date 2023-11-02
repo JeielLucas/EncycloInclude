@@ -4,6 +4,7 @@ import { RiscoCardiaco } from '../../pages/fatoresRisco/riscoCardiaco/RiscoCardi
 import { PressãoArterial } from './pressão Arterial/PressãoArterial';
 import { DepedenciaDeCigarro } from './depedenciaCigarro/DepedenciaDeCigarro';
 import { Obesidade } from './obesidade/Obesidade';
+import { QuestionarioEstresse } from './questionarioEstresse/QuestionarioEstresse';
 
 
 export const NavigationComponentRiscoCardiacos = () => {
@@ -44,7 +45,7 @@ export const NavigationComponentRiscoCardiacos = () => {
       </InfoContent>
 
       <InfoContent active={activeTab === 4}>
-        
+        <QuestionarioEstresse />
       </InfoContent>
 
 

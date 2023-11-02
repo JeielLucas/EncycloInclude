@@ -21,6 +21,8 @@ import ListItemText from '@mui/material/ListItemText';
 import NavigationComponent from '../../pages/tabelaReferencia';
 import { Par_Q } from '../../pages/par-q/Par_Q';
 import { NavigationComponentRiscoCardiacos } from '../../pages/fatoresRisco';
+import { ComposicaoCorporal } from '../../pages/composicaoCorporal/ComposicaoCorporal';
+import { CapacidadeFisicas } from '../../pages/capacidadeFisicas/CapacidadeFisicas';
 
 const drawerWidth = 240;
 
@@ -79,7 +81,6 @@ export default function PersistentDrawerLeft() {
   const [selectedItem, setSelectedItem] = useState('');
 
   const handleItemClick = (text: string) => {
-    console.log('dsaa', text)
     setSelectedItem(text);
   };
 
@@ -131,7 +132,7 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Tabela de referência', 'Anamnese', 'Fatores de risco', 'Composição corporal'].map((text, index) => (
+          {['Tabela de referência', 'Anamnese', 'Fatores de risco', 'Capacidades físicas','Composição corporal'].map((text, index) => (
             <ListItem key={index} disablePadding onClick={() => handleItemClick(text)}>
               <ListItemButton>
                 {/* <ListItemIcon>
@@ -151,6 +152,10 @@ export default function PersistentDrawerLeft() {
         
         
         {selectedItem === 'Fatores de risco' && <NavigationComponentRiscoCardiacos />}
+        
+        {selectedItem === 'Capacidades físicas' && <CapacidadeFisicas />}
+        
+        {selectedItem === 'Composição corporal' && <ComposicaoCorporal />}
         
 
       </Main>
