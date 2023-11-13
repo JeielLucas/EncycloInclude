@@ -24,7 +24,8 @@ Passo 2: Navegue para o Diretório do Projeto
 Use o comando cd para entrar no diretório do projeto que você acabou de clonar:
 
 ```
-cd ./LNSF
+cd ./saude-movimento
+
 ```
 
 Passo 3: Instale as Dependências
