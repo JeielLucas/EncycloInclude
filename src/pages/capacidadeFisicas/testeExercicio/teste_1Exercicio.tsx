@@ -1,11 +1,12 @@
+import { Box, Button, Container, Grid } from '@mui/material';
 
-import { Box, Container, Grid } from '@mui/material';
-import React from 'react';
+import { IFormErrorsCustom, TextFieldCustom, useCustomForm } from '../../../components/forms';
 import { Form } from "@unform/web";
+import { TextSelectCustom } from '../../../components/forms/TextSelectCustom';
 import * as yup from 'yup';
-import { IFormErrorsCustom, TextFieldCustom, useCustomForm } from '../../components/forms';
-import { TextSelectCustom } from '../../components/forms/TextSelectCustom';
-
+import { SectionTitle } from '../../fatoresRisco/riscoCardiaco/style';
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 export interface FormValues {
     nome: string;
@@ -14,62 +15,46 @@ export interface FormValues {
     estatura: string;
     peso: string;
     sexo: string;
-    percentualAlvoTreinamentoMin: string;
-    percentualAlvoTreinamentoMax: string;
-    nivelCondicionamento: string;
-    fcRepouso: string;
-
+    frequênciacardíaca: string;
+    nivel: string;
+    IAF: string;
 }
 
 const formValidateSchema: yup.Schema<FormValues> = yup.object().shape({
     nome: yup.string().required("Campo obrigatório"),
     idade: yup.string().required("Campo obrigatório"),
     etnia: yup.string().required("Campo obrigatório"),
-    peso: yup.string().required("Campo obrigatório"),
-    sexo: yup.string().required("Campo obrigatório"),
-    percentualAlvoTreinamentoMin: yup.string().required("Campo obrigatório"),
-    fcRepouso: yup.string().required("Campo obrigatório"),
-    percentualAlvoTreinamentoMax: yup.string().required("Campo obrigatório"),
-    nivelCondicionamento: yup.string().required("Campo obrigatório"),
     estatura: yup.string()
         .matches(/^\d+(\.\d{1,2})?$/, 'Somente números e ponto são permitidos para representar números decimais.')
         .required("Campo obrigatório"),
-
+    peso: yup.string().required("Campo obrigatório"),
+    sexo: yup.string().required("Campo obrigatório"),
+    frequênciacardíaca: yup.string().required("Campo obrigatório"),
+    nivel: yup.string().required("Campo obrigatório"),
+    IAF: yup.string().required("Campo obrigatório"),
 })
 
-export const Calculador_frequencia_cardiaca_maxima: React.FC = () => {
+export const Teste_1Exercicio: React.FC = () => {
 
-    // const [score1, setScore1] = useState(0);
-    // const [result, setResult] = useState('');
-
+    const [VoMax, setVoMax] = useState(0);
+    const [result, setResult] = useState(0);
+    const navigate = useNavigate()
     const { formRef, save } = useCustomForm();
 
-    // const avaliacao: { [key: number]: string } = {
-    //     1: 'Atividades Moderadas',
-    //     2: 'Controle do Peso',
-    //     3: 'Aeróbio',
-    //     4: 'Liminar Anaeróbio',
-    //     5: 'Esforço Máximo',
-    // }
 
-
-    // useEffect(() => {
-
-    //     if (score1) {
-    //         setResultAvaliacao(avaliacao[score1]);
-    //     }
-
-
-    // }, [score1])
-
+    useEffect(() => {
+        setResult(VoMax);
+    }, [VoMax])
 
     const handSave = (dados: FormValues) => {
-
+        console.log(dados.estatura)
         formValidateSchema.
             validate(dados, { abortEarly: false })
             .then((dadosValidados) => {
-                //fazer os calculos aquii
-                console.log(dadosValidados.estatura)
+
+                const result = (15 * ((220 - parseFloat(dadosValidados.idade)) / parseFloat(dadosValidados.frequênciacardíaca)))
+                setVoMax(result)
+
 
 
             })
@@ -87,11 +72,9 @@ export const Calculador_frequencia_cardiaca_maxima: React.FC = () => {
 
     return (
         <Container>
-
             <Form ref={formRef} onSubmit={(dados) => handSave(dados)}>
                 <Box margin={1} display='flex' flexDirection='column' >
                     <Grid container direction='column' padding={2} spacing={2}>
-
                         <Grid item xs={6}>
                             <TextFieldCustom
                                 fullWidth
@@ -100,7 +83,6 @@ export const Calculador_frequencia_cardiaca_maxima: React.FC = () => {
                                 disabled={false}
                             />
                         </Grid>
-
                         <Grid item xs={6}>
                             <TextFieldCustom
                                 fullWidth
@@ -160,13 +142,24 @@ export const Calculador_frequencia_cardiaca_maxima: React.FC = () => {
                                 name="estatura"
                                 disabled={false}
                             />
+
                         </Grid>
 
                         <Grid item xs={6}>
-                            <TextFieldCustom
+                            <TextSelectCustom
                                 fullWidth
-                                label="F.C. de Repouso"
-                                name="fcRepouso"
+                                menu={[
+                                    {
+                                        nome: 'Homem',
+                                        id: '1'
+                                    },
+                                    {
+                                        nome: 'Mulher',
+                                        id: '2'
+                                    }]}
+
+                                label="Sexo"
+                                name="sexo"
                                 disabled={false}
                             />
                         </Grid>
@@ -174,7 +167,7 @@ export const Calculador_frequencia_cardiaca_maxima: React.FC = () => {
                         <Grid item xs={6}>
                             <TextSelectCustom
                                 fullWidth
-                                name="nivelCondicionamento"
+                                name="nivel"
                                 menu={[
                                     {
                                         nome: 'Sedentário',
@@ -197,17 +190,47 @@ export const Calculador_frequencia_cardiaca_maxima: React.FC = () => {
                         <Grid item xs={6}>
                             <TextFieldCustom
                                 fullWidth
-                                label="Percentual Alvo de Treinamento Mínimo:"
-                                name="percentualAlvoTreinamentoMax"
+                                label="Frequência cardíaca"
+                                name="frequênciacardíaca"
                                 disabled={false}
                             />
                         </Grid>
                         <Grid item xs={6}>
-                            <TextFieldCustom
+                            <TextSelectCustom
                                 fullWidth
-                                label="Percentual Alvo de Treinamento Máximo:"
-                                name="percentualAlvoTreinamentoMin"
+                                name="IAF"
+                                menu={[
+                                    {
+                                        nome: 'Evita caminhada ou esforço ',
+                                        id: '0'
+                                    },
+                                    {
+                                        nome: 'Caminha por prazer, usa escadas de forma rotineira, ocasionalmente se exercita de forma suficiente para causar respiração ofegante ou transpiração',
+                                        id: '1'
+                                    },
+                                    {
+                                        nome: 'Pratica exercício de 10 a 60 minutos por semana',
+                                        id: '3'
+                                    },
+                                    {
+                                        nome: 'Corre menos de 1.6 km por semana ou gasta menos de 30 minutos por semana em atividade física comparável',
+                                        id: '4'
+                                    },
+                                    {
+                                        nome: 'Corre de 1.6 a 8 km por semana ou gasta de 30 a 60 minutos por semana em atividade física comparável',
+                                        id: '5'
+                                    },
+                                    {
+                                        nome: 'Corre 8 a 16 km por semana ou gasta de 1 a 3 horas por semana em atividade física comparável',
+                                        id: '6'
+                                    },
+                                    {
+                                        nome: 'Corre mais de 16 km por semana ou gasta mais de 3 horas por semana em atividade física comparável',
+                                        id: '7'
+                                    },
+                                ]}
                                 disabled={false}
+                                label="Indice de Atividade Física"
                             />
                         </Grid>
 
@@ -215,8 +238,21 @@ export const Calculador_frequencia_cardiaca_maxima: React.FC = () => {
                 </Box>
             </Form>
 
-            <button onClick={save}>Calcular</button>
-            {/* {result} */}
-        </Container>
+            <SectionTitle>AVALIAÇÃO DO VO2 MÁXIMO SEM EXERCÍCIO:</SectionTitle>
+
+            <button onClick={save}>calcular</button>
+            <Button onClick={() => navigate('/ferramentas')}>voltar</Button>
+
+            <>
+                <p>
+                    P.A. MÉDIA:
+                </p>
+                {result}
+
+
+            </>
+
+
+        </Container >
     );
 };

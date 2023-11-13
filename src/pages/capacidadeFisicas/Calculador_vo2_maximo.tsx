@@ -1,15 +1,19 @@
 
 import { useState } from 'react';
 import { InfoContent, NavigationContainer, NavigationItem } from '../tabelaReferencia/style';
+import { Teste_1 } from './testeCaminhada/teste_1';
+import { Teste_3 } from './testeCaminhada/teste_3';
+import { Teste_2 } from './testeCaminhada/teste_2';
+import { useNavigate } from 'react-router-dom';
 
 export const Calculador_vo2_maximo = () => {
-    const [active1, setActive1] = useState(0);
-    const [active2, setActive2] = useState(0);
-    const [active3, setActive3] = useState(0);
+    
+    const [active2, setActive2] = useState(-1);
+    const [active3, setActive3] = useState(-1);
 
-    const handleTabClick = (index: number) => {
-        setActive1(index);
-    };
+    const navigate = useNavigate();
+
+
     const handleTabClick2 = (index: number) => {
         setActive2(index);
     };
@@ -17,23 +21,17 @@ export const Calculador_vo2_maximo = () => {
         setActive3(index);
     };
 
+
     return (
         <>
 
-                TESTES SEM EXERCÍCIO
-            <NavigationContainer>
-                <NavigationItem onClick={() => handleTabClick(0)}>Avaliador do VO2 máximo sem exercício físico usando o percentual de gordura</NavigationItem>
-                <NavigationItem onClick={() => handleTabClick(1)}>Avaliador do VO2 máximo sem exercício físico usando o IMC</NavigationItem>
 
+            TESTES SEM EXERCÍCIO
+            <NavigationContainer>
+                <NavigationItem onClick={() => navigate("/ferramentas/capacidade-fisica/avaliar%gordura")}>Avaliador do VO2 máximo sem exercício físico usando o percentual de gordura</NavigationItem>
+                <NavigationItem onClick={() => navigate("/ferramentas/capacidade-fisica/avaliar%imc")}>Avaliador do VO2 máximo sem exercício físico usando o IMC</NavigationItem>
             </NavigationContainer>
 
-            <InfoContent active={active1 === 0}>
-
-            </InfoContent>
-
-            <InfoContent active={active1 === 1}>
-
-            </InfoContent>
 
             TESTES DE CAMINHADA OU CORRIDA
             <NavigationContainer>
@@ -46,18 +44,18 @@ export const Calculador_vo2_maximo = () => {
                 <NavigationItem onClick={() => handleTabClick2(6)}>Teste de corrida e/ou caminhada de 12 minutos (Cooper) para atletas e sedentários</NavigationItem>
 
             </NavigationContainer>
-           
+
 
             <InfoContent active={active2 === 0}>
-
+                <Teste_1 />
             </InfoContent>
 
             <InfoContent active={active2 === 1}>
-
+                <Teste_2 />
             </InfoContent>
 
             <InfoContent active={active2 === 2}>
-
+                <Teste_3 />
             </InfoContent>
 
             <InfoContent active={active2 === 3}>
@@ -86,7 +84,7 @@ export const Calculador_vo2_maximo = () => {
                 <NavigationItem onClick={() => handleTabClick3(1)}>Teste de Banco de Kacth para ambos os sexos em idade universitária</NavigationItem>
                 <NavigationItem onClick={() => handleTabClick3(2)}>Teste de Banco de Nagle para ambos os sexos, de 6 a 70 anos que sejam obesos, cardíacos, pós cirúrgico e escolares</NavigationItem>
             </NavigationContainer>
-           
+
 
             <InfoContent active={active3 === 0}>
 
