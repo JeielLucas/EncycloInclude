@@ -17,7 +17,7 @@ Passo 1: Clone o Repositório do GitHub
    Abra o terminal e navegue para o diretório onde você deseja que o projeto seja clonado. Em seguida, execute o comando git clone seguido pela URL do repositório do GitHub:
 
    ```
-   git clone https://github.com/LovelaceLines/LNSF-Frontend.git
+   git clone https://github.com/Josivania0706/saude-movimento.git
    ```
 Passo 2: Navegue para o Diretório do Projeto
 
