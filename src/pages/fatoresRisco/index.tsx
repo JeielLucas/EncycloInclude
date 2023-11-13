@@ -5,6 +5,8 @@ import { PressãoArterial } from './pressão Arterial/PressãoArterial';
 import { DepedenciaDeCigarro } from './depedenciaCigarro/DepedenciaDeCigarro';
 import { Obesidade } from './obesidade/Obesidade';
 import { QuestionarioEstresse } from './questionarioEstresse/QuestionarioEstresse';
+import { Sedentarismo } from './sedentarismo/Sedentarismo';
+import { CinturaQuadril } from './cinturaQuadril/CinturaQuadril';
 
 
 export const NavigationComponentRiscoCardiacos = () => {
@@ -48,7 +50,13 @@ export const NavigationComponentRiscoCardiacos = () => {
         <QuestionarioEstresse />
       </InfoContent>
 
+      <InfoContent active={activeTab === 5}>
+        <Sedentarismo />
+      </InfoContent>
 
+      <InfoContent active={activeTab === 6}>
+        <CinturaQuadril />
+      </InfoContent>
 
     </div>
   );

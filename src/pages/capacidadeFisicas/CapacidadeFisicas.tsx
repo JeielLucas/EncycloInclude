@@ -1,12 +1,10 @@
-
-
 import { Calculador_vo2_maximo } from './Calculador_vo2_maximo';
 import { Calculador_frequencia_cardiaca_maxima } from './Calculador_frequencia_cardiaca_maxima';
 import { useState } from 'react';
 import { InfoContent, NavigationContainer, NavigationItem } from '../tabelaReferencia/style';
 
 export const CapacidadeFisicas = () => {
-    const [activeTab, setActiveTab] = useState(0);
+    const [activeTab, setActiveTab] = useState(-1);
 
     const handleTabClick = (index: number) => {
       setActiveTab(index);
