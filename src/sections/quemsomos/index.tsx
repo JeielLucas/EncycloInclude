@@ -1,4 +1,4 @@
-import {Containeer, Container, ContainerGeral, ContainerLimit2, ImageLogo, Itens, Rodape, Subtitle, Textos, Title, WaveImage, EscritoNegrito, TitleValues, SubtitleCard} from "./style"
+import {Containeer, ContainerGeral, ContainerLimit2, ImageLogo, Itens, Rodape, Subtitle, Textos, Title, WaveImage, EscritoNegrito} from "./style"
 import imgonda from '../../assets/home/onda 2.png'
 import imgrodape from '../../assets/home/onda-curta-b 1 rodape.png'
 import EmailIcon from '@mui/icons-material/Email';
@@ -6,7 +6,8 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import logo from '../../assets/home/P1 AZUL ESCURO.png';
-import Card from '../../components/Card/card';
+import CardList from "../../components/Card/CardList";
+import Values from "../../components/AboutValues/Values";
 
 import { Header } from "../../components/header"
 
@@ -14,7 +15,7 @@ import { Header } from "../../components/header"
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom"
 import { Limit } from "../../tools/Limit"
-import CardList from "../../components/Card/CardList";
+
 
 
 
@@ -48,25 +49,17 @@ export const AboutUs: React.FC = () => {
                 </Limit>
 
             <Limit>
-                <Container>
-                    <TitleValues>Nossos valores</TitleValues>
-                </Container>
+                <Values
+                />
             </Limit>
 
             <ContainerLimit2>
                 <CardList
                 />
 
-                <img src={imgrodape} />
+                <img src={imgrodape} style={{ width: '100%'}}  />
             </ContainerLimit2>
         
-            
-
-
-
-
-
-
             <Rodape>
                 <Box
                     width='100%'
@@ -87,7 +80,6 @@ export const AboutUs: React.FC = () => {
                                 <Box>
                                     <a href="#inicio" style={{ textDecoration: 'none' }}>
                                         <Itens>Início</Itens>
-                                        {/* <hr style={{ width: '100%', borderColor: 'white' }} /> */}
                                     </a>
 
                                 </Box>
