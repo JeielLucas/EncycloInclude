@@ -1,5 +1,5 @@
 import { Home } from "../../sections"
-import { BodyLimit } from "../../sections/home/syle"
+import { BodyLimit } from "../../sections/home/style"
 
 export const PaginaIcial = () => {
     return (

@@ -1,4 +1,4 @@
-import { Button, Card, Cards,  Container, ContainerLimit, ImageCard, ImageLogo, Itens, Rodape, TextCard, TextCard1, TitleCard,  TituloCard, WaveImage } from "../home/syle"
+import { Button, Card, Cards,  Container, ContainerLimit, ImageCard, ImageLogo, Itens, Rodape, TextCard, TextCard1, TitleCard,  TituloCard, WaveImage } from "../home/style"
 import imgonda from '../../assets/home/onda 2.png'
 import img from '../../assets/home/Rectangle 68.png'
 import EmailIcon from '@mui/icons-material/Email';
